@@ -1,0 +1,45 @@
+.selected-seat {
+  padding: 2rem;
+}
+
+.container {
+  width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.seat:not(.seat--occupied):not(.seat--selected) {
+  cursor: pointer;
+}
+
+.seat--auto {
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem;
+}
+
+.seat {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.25rem;
+}
+
+.seat__rect {
+  fill: #69bffc;
+}
+
+.seat__path {
+  fill: none;
+  stroke: #888;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.seat__text {
+  fill: #000000;
+  font-family: "Open Sans";
+  font-size: 36px;
+  text-anchor: middle;
+  user-select: none;
+}
