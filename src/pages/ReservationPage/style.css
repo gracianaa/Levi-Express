@@ -1,0 +1,25 @@
+.reservation {
+  padding: 2rem;
+  margin: -2rem auto 4rem auto;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px gray;
+}
+
+.container {
+  width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.reservation__body {
+  display: flex;
+}
+
+.reservation__headings {
+  margin-right: 2rem;
+}
+
+.reservation__info {
+  font-weight: bold;
+}

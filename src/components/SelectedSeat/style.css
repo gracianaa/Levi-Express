@@ -28,6 +28,10 @@
   fill: #69bffc;
 }
 
+.seat__rect:hover {
+  fill: #eb5846;
+}
+
 .seat__path {
   fill: none;
   stroke: #888;
