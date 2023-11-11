@@ -8,16 +8,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
   const [toCity, setToCity] = useState('');
   const [date, setDate] = useState('');
   const [cities, setCities] = useState([]);
-  const [dates, setDates] = useState([
-    {
-      dateBasic: '28.05.2021',
-      dateCs: 'pá 28. květen 2021',
-    },
-    {
-      dateBasic: '29.05.2021',
-      dateCs: 'so 29. květen 2021',
-    },
-  ]);
+  const [dates, setDates] = useState([]);
 
   useEffect(() => {
     const fetchDataCities = async () => {
