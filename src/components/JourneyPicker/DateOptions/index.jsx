@@ -1,7 +1,7 @@
-export const DateOptions = ({ dates }) => {
+export const DateOptions = ({ dates, code }) => {
   return (
     <>
-      <option value={dates}>{dates}</option>
+      <option value={code}>{dates}</option>
     </>
   );
 };

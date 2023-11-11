@@ -40,12 +40,14 @@ export const JourneyPicker = ({ onJourneyChange }) => {
     setDate(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Odesílám formulář s cestou');
-    console.log(fromCity);
-    console.log(toCity);
-    console.log(date);
+    const response = await fetch(
+      `https://apps.kodim.cz/daweb/leviexpress/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`,
+    );
+    const data = await response.json();
+    onJourneyChange(data.results);
   };
 
   return (
@@ -58,7 +60,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             <select value={fromCity} onChange={handleChangeFromCity}>
               <option value="">Vyberte</option>
               {cities.map((c) => (
-                <CityOptions key={c.code} cities={c.name} />
+                <CityOptions key={c.code} code={c.code} cities={c.name} />
               ))}
             </select>
           </label>
@@ -67,7 +69,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             <select value={toCity} onChange={handleChangeToCity}>
               <option value="">Vyberte</option>
               {cities.map((c) => (
-                <CityOptions key={c.code} cities={c.name} />
+                <CityOptions key={c.code} code={c.code} cities={c.name} />
               ))}
             </select>
           </label>
@@ -76,12 +78,22 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             <select value={date} onChange={handleChangeDate}>
               <option value="">Vyberte</option>
               {dates.map((c) => (
-                <DateOptions key={c.dateBasic} dates={c.dateCs} />
+                <DateOptions
+                  key={c.dateBasic}
+                  code={c.dateBasic}
+                  dates={c.dateCs}
+                />
               ))}
             </select>
           </label>
           <div className="journey-picker__controls">
-            <button className="btn" type="submit">
+            <button
+              disabled={
+                date !== '' && toCity !== '' && fromCity !== '' ? false : true
+              }
+              className="btn"
+              type="submit"
+            >
               Vyhledat spoj
             </button>
           </div>

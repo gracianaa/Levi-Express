@@ -1,7 +1,7 @@
-export const CityOptions = ({ cities }) => {
+export const CityOptions = ({ cities, code }) => {
   return (
     <>
-      <option value={cities}>{cities}</option>
+      <option value={code}>{cities}</option>
     </>
   );
 };
