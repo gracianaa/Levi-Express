@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { JourneyPicker } from '../../components/JourneyPicker';
 import { JourneyDetail } from '../../components/JourneyDetail';
-import { SelectedSeat } from '../../components/SelectedSeat';
 import { useNavigate } from 'react-router-dom';
+import { SeatPicker } from '../../components/SeatPicker';
 
 export const HomePage = () => {
   const [journey, setJourney] = useState(null);
   const [number, setNumber] = useState(null);
   const [journeyId, setJourneyId] = useState(null);
+  const [seats, setSeats] = useState(null);
   const navigate = useNavigate();
 
   const handleJourneyChange = (journey) => {
     setJourney(journey.stops);
     setNumber(journey.autoSeat);
     setJourneyId(journey.journeyId);
+    setSeats(journey.seats);
+    console.log(journey.seats);
   };
 
   const handleBuy = async (e) => {
@@ -43,9 +46,8 @@ export const HomePage = () => {
   return (
     <main>
       <JourneyPicker onJourneyChange={handleJourneyChange} />
-      {/* <p>Nalezeno spojení s id {journey}</p> */}
-      {journey === null ? null : <JourneyDetail journey={journey} />}
-      {journey === null ? null : <SelectedSeat number={number} />}
+      {journey && <JourneyDetail journey={journey} />}
+      {journey && <SeatPicker seats={seats} numberSeat={number} />}
       <div className="controls container">
         <button
           onClick={handleBuy}

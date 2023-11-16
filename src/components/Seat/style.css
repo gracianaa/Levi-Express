@@ -24,8 +24,13 @@
   margin-right: 0.25rem;
 }
 
+
 .seat__rect {
   fill: #69bffc;
+}
+
+.seat--occupied .seat__rect {
+  fill: #888;
 }
 
 .seat__rect:hover {

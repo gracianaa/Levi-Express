@@ -29,6 +29,10 @@ export const ReservationPage = () => {
           <p>Příjezd:</p>
           <p>Sedadlo:</p>
         </div>
+        {/* Nezapomeňte zobrazení dat podmínit tím, že stav reservation nemá hodnotu null, jinak bude prohlížeč hlásit chybu, že nelze číst z undefined. */
+        /*Na začiatku máme v stave "reservation" definované defaultne hodnotu "null", potom fetchujeme data, ale tým, že občas trvá, kým sa data stiahnú z API, nám už rovno vracia hodnotu null, preto to musíme ošetriť podmienkou, že ak je hodnota null, tak sa nám to čo je v return() nezobrazí, a ak hodnota nie je null, čiže data sa nám už z API načítali, tak sa zobrazí čo chceme, v tomto prípade, hodnota reservation bez podmienky, by dosadzovala hodnotu null a tým pádom, by vracalo hodnotu null.date, null.fromCity.name a hlásilo by nám undefined v konzole:
+          Cannot read properties of null (reading 'date') */
+        /*Podmienku definujeme ako {reservation && (...)} */}
         {reservation && (
           <div className="reservation__info">
             <p>{reservation.date}</p>

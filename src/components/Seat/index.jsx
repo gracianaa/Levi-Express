@@ -1,6 +1,6 @@
 import './style.css';
 
-export const SelectedSeat = ({ number }) => {
+export const Seat = ({ number }) => {
   return (
     <div className="selected-seat container">
       <h2>Vaše sedadlo</h2>
